@@ -9,6 +9,10 @@ class Meme(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
     
+    @commands.command(usage="zt!topic")
+    async def topic(self,ctx):
+      data = requests.get("https://zeroonebot.jackhoos-bots.repl.co/api/conversation").json()
+      await ctx.send(data["topic"])
 
     @commands.command(usage="zt!8ball <your question>",name="8ball")
     async def _8ball(self,ctx):
